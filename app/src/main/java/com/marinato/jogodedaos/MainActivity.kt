@@ -21,6 +21,7 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -43,34 +44,66 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun App(){
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Black)
-    ){
-
-        Canvas(modifier = Modifier.size(96.dp, 96.dp).align(Alignment.Center)){
-            drawRoundRect(
-                Color.Yellow,
-                cornerRadius = CornerRadius(20f, 20f),
-                topLeft = Offset(10f, 10f),
-                size = size
-            )
-
+fun DrawScope.bullet(number: Int) {
+    when (number) {
+        1 -> {
             drawCircle(
                 Color.Black,
                 radius = Dp(20f).value,
-                center = Offset(size.width /2, size.height /2)
+                center = Offset(size.width / 2, size.height / 2)
             )
         }
 
-        Button(onClick = { }, modifier = Modifier
-            .align(Alignment.Center)
-            .offset(y = 100.dp)
+        2 -> {
+            drawCircle(
+                Color.Black,
+                radius = Dp(20f).value,
+                center = Offset(size.width - Dp(60f).value, Dp(55f).value)
+            )
+            drawCircle(
+                Color.Black,
+                radius = Dp(20f).value,
+                center = Offset(Dp(60f).value, size.height - Dp(40f).value)
+            )
+        }
+    }
+}
+
+@Composable
+fun Dice(number: Int, modifier: Modifier) {
+    Canvas(
+        modifier = modifier
+            .size(96.dp, 96.dp)
+    ) {
+        drawRoundRect(
+            Color.Yellow,
+            cornerRadius = CornerRadius(20f, 20f),
+            topLeft = Offset(10f, 10f),
+            size = size
+        )
+        bullet(number = number)
+    }
+}
+
+@Composable
+fun App() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)
+    ) {
+
+        Dice(1, Modifier.align(Alignment.Center))
+        Dice(2, Modifier.align(Alignment.TopStart))
+
+
+        Button(
+            onClick = { }, modifier = Modifier
+                .align(Alignment.Center)
+                .offset(y = 100.dp)
         ) {
             Text(text = "Rolar")
-            
+
         }
     }
 }
