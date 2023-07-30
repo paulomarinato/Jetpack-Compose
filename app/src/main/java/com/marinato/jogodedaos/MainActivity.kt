@@ -44,14 +44,18 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+fun DrawScope.circle(){
+    drawCircle(
+        Color.Black,
+        radius = Dp(20f).value,
+        center = Offset(size.width / 2, size.height / 2)
+    )
+}
+
 fun DrawScope.bullet(number: Int) {
     when (number) {
         1 -> {
-            drawCircle(
-                Color.Black,
-                radius = Dp(20f).value,
-                center = Offset(size.width / 2, size.height / 2)
-            )
+
         }
 
         2 -> {
