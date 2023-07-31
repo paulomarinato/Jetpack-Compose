@@ -45,17 +45,22 @@ class MainActivity : ComponentActivity() {
 }
 
 fun DrawScope.circle(){
+    val radius = Dp(20f).value,
     drawCircle(
         Color.Black,
-        radius = Dp(20f).value,
+        radius = radius,
         center = Offset(size.width / 2, size.height / 2)
     )
 }
+fun DrawScope.center(){
+    circle()
+}
+
 
 fun DrawScope.bullet(number: Int) {
     when (number) {
         1 -> {
-
+            center()
         }
 
         2 -> {
