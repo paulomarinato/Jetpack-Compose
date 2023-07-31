@@ -44,16 +44,23 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun DrawScope.circle(){
-    val radius = Dp(20f).value,
+fun DrawScope.circle(offset: () -> Offset){
+    val radius = Dp(20f).value
     drawCircle(
         Color.Black,
         radius = radius,
-        center = Offset(size.width / 2, size.height / 2)
+        center = offset()
     )
 }
 fun DrawScope.center(){
-    circle()
+    circle{
+        Offset(size.width / 2, size.height / 2)
+    }
+}
+fun DrawScope.topRight(){
+    circle{
+        Offset(size.width - Dp(20f).value, Dp(40f).value)
+    }
 }
 
 
@@ -64,16 +71,8 @@ fun DrawScope.bullet(number: Int) {
         }
 
         2 -> {
-            drawCircle(
-                Color.Black,
-                radius = Dp(20f).value,
-                center = Offset(size.width - Dp(60f).value, Dp(55f).value)
-            )
-            drawCircle(
-                Color.Black,
-                radius = Dp(20f).value,
-                center = Offset(Dp(60f).value, size.height - Dp(40f).value)
-            )
+            topRight()
+            center()
         }
     }
 }
