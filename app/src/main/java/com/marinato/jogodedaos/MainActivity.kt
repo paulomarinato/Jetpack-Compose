@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun DrawScope.circle(offset: () -> Offset){
+fun DrawScope.circle(offset: () -> Offset) {
     val radius = Dp(20f).value
     drawCircle(
         Color.Black,
@@ -52,17 +52,24 @@ fun DrawScope.circle(offset: () -> Offset){
         center = offset()
     )
 }
-fun DrawScope.center(){
-    circle{
-        Offset(size.width / 2, size.height / 2)
-    }
-}
-fun DrawScope.topRight(){
-    circle{
-        Offset(size.width - Dp(20f).value, Dp(40f).value)
+
+fun DrawScope.center() {
+    circle {
+        Offset((size.width / 2) + (it / 2f), (size.height / 2) - it / 2)
     }
 }
 
+fun DrawScope.topRight() {
+    circle {
+        Offset(size.width - it, it * 2)
+    }
+}
+
+fun DrawScope.bottomLeft() {
+    circle {
+        Offset(it * 2f, size.height - (it * 2f))
+    }
+}
 
 fun DrawScope.bullet(number: Int) {
     when (number) {
@@ -104,14 +111,12 @@ fun App() {
         Dice(1, Modifier.align(Alignment.Center))
         Dice(2, Modifier.align(Alignment.TopStart))
 
-
         Button(
             onClick = { }, modifier = Modifier
                 .align(Alignment.Center)
-                .offset(y = 100.dp)
+                .offset(y = (100).dp)
         ) {
             Text(text = "Rolar")
-
         }
     }
 }
