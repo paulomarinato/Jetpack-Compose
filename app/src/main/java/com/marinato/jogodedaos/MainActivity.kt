@@ -49,13 +49,13 @@ fun DrawScope.circle(offset: (Float) -> Offset) {
     drawCircle(
         Color.Black,
         radius = radius,
-        center = offset()
+        center = offset(int)
     )
 }
 
 fun DrawScope.center() {
     circle {
-        Offset((size.width / 2) + (it / 2f), (size.height / 2) - it / 2)
+        Offset((size.width / 2), size.height / 2)
     }
 }
 
