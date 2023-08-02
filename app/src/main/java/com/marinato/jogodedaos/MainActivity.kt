@@ -49,7 +49,7 @@ fun DrawScope.circle(offset: (Float) -> Offset) {
     drawCircle(
         Color.Black,
         radius = radius,
-        center = offset(int)
+        center = offset(radius)
     )
 }
 
