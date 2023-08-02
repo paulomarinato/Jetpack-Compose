@@ -44,7 +44,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun DrawScope.circle(offset: () -> Offset) {
+fun DrawScope.circle(offset: (Float) -> Offset) {
     val radius = Dp(20f).value
     drawCircle(
         Color.Black,
@@ -80,6 +80,7 @@ fun DrawScope.bullet(number: Int) {
         2 -> {
             topRight()
             center()
+            bottomLeft()
         }
     }
 }
@@ -88,7 +89,7 @@ fun DrawScope.bullet(number: Int) {
 fun Dice(number: Int, modifier: Modifier) {
     Canvas(
         modifier = modifier
-            .size(96.dp, 96.dp)
+            .size(100.dp, 100.dp)
     ) {
         drawRoundRect(
             Color.Yellow,
