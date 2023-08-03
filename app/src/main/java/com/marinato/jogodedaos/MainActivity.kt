@@ -1,7 +1,6 @@
 package com.marinato.jogodedaos
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
@@ -19,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,7 +53,7 @@ fun DrawScope.circle(offset: (Float) -> Offset) {
 
 fun DrawScope.center() {
     circle {
-        Offset((size.width / 2), size.height / 2)
+        Offset((size.width / 2f) + (it / 2f),  (size.height / 2) + (it / 2f))
     }
 }
 
@@ -89,7 +87,7 @@ fun DrawScope.bullet(number: Int) {
 fun Dice(number: Int, modifier: Modifier) {
     Canvas(
         modifier = modifier
-            .size(100.dp, 100.dp)
+            .size((100).dp, (100).dp)
     ) {
         drawRoundRect(
             Color.Yellow,
