@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -150,10 +151,17 @@ fun App() {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .padding(25.dp)
             .background(Color.Black)
+
     ) {
 
-        Dice(6, Modifier.align(Alignment.Center))
+        Dice(1, Modifier.align(Alignment.TopStart))
+        Dice(2, Modifier.align(Alignment.TopCenter))
+        Dice(3, Modifier.align(Alignment.TopEnd))
+        Dice(4, Modifier.align(Alignment.BottomStart))
+        Dice(5, Modifier.align(Alignment.BottomCenter))
+        Dice(6, Modifier.align(Alignment.BottomEnd))
 
 
         Button(
