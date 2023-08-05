@@ -151,7 +151,7 @@ fun App() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(25.dp)
+            .padding(8.dp)
             .background(Color.Black)
 
     ) {
@@ -159,10 +159,9 @@ fun App() {
         Dice(1, Modifier.align(Alignment.TopStart))
         Dice(2, Modifier.align(Alignment.TopCenter))
         Dice(3, Modifier.align(Alignment.TopEnd))
-        Dice(4, Modifier.align(Alignment.BottomStart))
-        Dice(5, Modifier.align(Alignment.BottomCenter))
-        Dice(6, Modifier.align(Alignment.BottomEnd))
-
+        Dice(4, Modifier.align(Alignment.TopStart).offset(y = 120.dp))
+        Dice(5, Modifier.align(Alignment.TopCenter).offset(y = 120.dp))
+        Dice(6, Modifier.align(Alignment.TopEnd).offset(y = 120.dp))
 
         Button(
             onClick = { }, modifier = Modifier
