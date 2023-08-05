@@ -11,4 +11,4 @@ Jetpack Compose é um toolkit moderno de interface do usuário declarativa desen
 # Apresentação do Layout
 ![image](https://github.com/paulomarinato/Jetpack-Compose/assets/110001137/cbf3598d-3d66-4955-8ee6-3f5d18e50418)
 
-logo trarei a logica para rolar alguns dados. =D
+Logo trarei a logica para rolamos alguns dados. =D
