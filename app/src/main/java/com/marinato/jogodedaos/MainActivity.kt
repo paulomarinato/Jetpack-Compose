@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 fun DrawScope.circle(offset: (Float) -> Offset) {
     val radius = Dp(20f).value
     drawCircle(
@@ -51,7 +50,6 @@ fun DrawScope.circle(offset: (Float) -> Offset) {
         center = offset(radius)
     )
 }
-
 fun DrawScope.center() { //OK
     circle {
         Offset((size.width / 2f) + (it / 2f),  (size.height / 2) + (it / 2f))
@@ -67,7 +65,6 @@ fun DrawScope.centerLeft() { //OK
         Offset(( it * 2f),  (size.height / 2f) + (it / 2f))
     }
 }
-
 fun DrawScope.topRight() { //OK
     circle {
         Offset(size.width - it, (it * 2))
@@ -78,19 +75,16 @@ fun DrawScope.topLeft() {
         Offset(it * 2, it * 2)
     }
 }
-
 fun DrawScope.bottomRight() {  //OK
     circle {
         Offset(size.width - it, size.height - it)
     }
 }
-
 fun DrawScope.bottomLeft() { //OK
     circle {
         Offset(it * 2f, size.height - it)
     }
 }
-
 fun DrawScope.bullet(number: Int) {
     when (number) {
         1 -> {
@@ -129,7 +123,6 @@ fun DrawScope.bullet(number: Int) {
         }
     }
 }
-
 @Composable
 fun Dice(number: Int, modifier: Modifier) {
     Canvas(
@@ -145,7 +138,6 @@ fun Dice(number: Int, modifier: Modifier) {
         bullet(number = number)
     }
 }
-
 @Composable
 fun App() {
     Box(
@@ -172,7 +164,6 @@ fun App() {
         }
     }
 }
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
